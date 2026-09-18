@@ -12,3 +12,18 @@ def floorSqrt(self, n: int) -> int:
             else:
                 high=mid-1
         return ans
+
+# FIND THE Nth ROOT
+def NthRoot(self, n, m):
+        low=1
+        high=m
+        while low<high:
+            mid=low+(high-low)//2
+            if mid**n==m:
+                return mid
+            elif mid**n<mid:
+                low=mid+1
+            else:
+                high=mid-1
+        return -1
+    
