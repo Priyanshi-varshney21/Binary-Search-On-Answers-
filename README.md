@@ -27,3 +27,17 @@ def NthRoot(self, n, m):
                 high=mid-1
         return -1
     
+# KOKO EATING BANANAS 
+def minimumRateToEatBananas(self, piles, h):
+        low=1
+        high=max(piles)
+        while low<high:
+            hours=0
+            mid=low+(high-low)//2
+            for pile in piles:
+                hours+=(pile + mid-1)//mid
+            if hours<=h:
+                high=mid-1  #to find the min
+            else:
+                low=mid+1
+        return low
