@@ -41,3 +41,20 @@ def minimumRateToEatBananas(self, piles, h):
             else:
                 low=mid+1
         return low
+
+# SMALLEST DIVISOR 
+def smallestDivisor(self, nums, limit):
+        low=1
+        high=max(nums)
+        while low<high:
+            mid=low+(high-low)//2
+            total=0                 #reset toatl for every mid=
+            for num in nums:
+                total+=(num + mid-1)//mid
+            if total<=limit:
+                high=mid
+            else:
+                low=mid+1
+        return low
+                
+
