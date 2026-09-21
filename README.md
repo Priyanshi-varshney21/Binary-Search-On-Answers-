@@ -57,4 +57,27 @@ def smallestDivisor(self, nums, limit):
                 low=mid+1
         return low
                 
+# FIND MINIMUM DAYS TO MAKE M BOUQETS
+def roseGarden(self, n, nums, k, m):
+        if m*k>len(nums):
+            return -1
+        low=min(nums)
+        high=max(nums)
+        while low<=high:
+            mid=low+(high-low)//2
+            bouqets=0
+            flowers=0
+            for day in nums:
+                if day<=mid:
+                    flowers+=1
+                    if flowers==k:
+                        bouqets+=1
+                        flowers=0
+                else:
+                    flowers=0
+            if bouqets>=m:
+                high=mid-1
+            else:
+                low=mid+1
+        return low
 
