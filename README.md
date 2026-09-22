@@ -81,3 +81,24 @@ def roseGarden(self, n, nums, k, m):
                 low=mid+1
         return low
 
+# CAPACITY TO SHIP PACKAGES WITHIN D DAYS
+def shipWithinDays(self, weights, days):
+        low=max(weights)
+        high=sum(weights)
+        while low<=high:
+            mid=low+(high-low)//2
+            total=0
+            count_days=1
+            for w in weights:
+                if total+w <= mid:
+                    total+=w
+                else:
+                    count_days+=1
+                    total=w
+            if count_days<=days:
+                high=mid-1
+            else:
+                low=mid+1
+        return low
+                
+
