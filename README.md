@@ -114,3 +114,23 @@ def find_kth_positive(self, arr, k):
             else:
                 high=mid-1
         return low+k
+
+# PAINTERS PARTOTION
+def painterPartition(boards, k):
+    low = max(boards)
+    high = sum(boards)
+    while low <= high:
+        mid = low + (high - low) // 2
+        painters = 1
+        total = 0
+        for board in boards:
+            if total + board <= mid:
+                total += board
+            else:
+                painters += 1
+                total = board
+        if painters <= k:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return low
